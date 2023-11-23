@@ -15,8 +15,8 @@ function transformInput(input: string | Uint8Array): Uint8Array {
  *
  * @example
  * let value = "hello world";
- * let res32 = hash32(value);
- * // res32 ==> "430397466" (as a string representation)
+ * let hash = farmhash.hash32(value);
+ * // hash ==> "430397466" (as a string representation)
  */
 function hash32(input: string | Uint8Array): string {
   input = transformInput(input);
@@ -32,8 +32,8 @@ function hash32(input: string | Uint8Array): string {
  *
  * @example
  * let value = "hello world";
- * let res64 = hash64(value);
- * // res64 ==> "6381520714923946011" (as a string representation)
+ * let hash = farmhash.hash64(value);
+ * // hash ==> "6381520714923946011" (as a string representation)
  */
 function hash64(input: string | Uint8Array): string {
   input = transformInput(input);
@@ -49,8 +49,8 @@ function hash64(input: string | Uint8Array): string {
  *
  * @example
  * let value = "hello world";
- * let res32 = fingerprint32(value);
- * // res32 ==> "430397466" (as a string representation)
+ * let hash = farmhash.fingerprint32(value);
+ * // hash ==> "430397466" (as a string representation)
  */
 function fingerprint32(input: string | Uint8Array): string {
   input = transformInput(input);
@@ -66,19 +66,13 @@ function fingerprint32(input: string | Uint8Array): string {
  *
  * @example
  * let value = "hello world";
- * let res64 = fingerprint64(value);
- * // res64 ==> "6381520714923946011" (as a string representation)
+ * let hash = farmhash.fingerprint64(value);
+ * // hash ==> "6381520714923946011" (as a string representation)
  */
 function fingerprint64(input: string | Uint8Array): string {
   input = transformInput(input);
   return farmhash.fingerprint64(input).toString();
 }
-
-const example = "hello world";
-console.log("hash32", hash32(example));
-console.log("hash64", hash64(example));
-console.log("fingerprint32", fingerprint32(example));
-console.log("fingerprint64", fingerprint64(example));
 
 export default {
   hash32,
